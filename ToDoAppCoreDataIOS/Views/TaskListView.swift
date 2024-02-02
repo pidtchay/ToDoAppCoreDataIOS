@@ -27,6 +27,14 @@ struct TaskListView: View {
         List(tasks) { task in
             TaskRowView(task: task)
         }
+        .navigationTitle(title)
+        .toolbar {
+            Button {
+                _ = CDTask(title: "New", dueDate: Date(), context: context)
+            } label: {
+                Label("Add task", systemImage: "plus")
+            }
+        }
     }
 }
 

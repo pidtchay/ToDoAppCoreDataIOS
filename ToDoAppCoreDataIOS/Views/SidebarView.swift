@@ -33,7 +33,7 @@ struct SidebarView: View {
         }
         .safeAreaInset(edge: .bottom) {
             Button(action: {
-                let newGroup = CDTaskGroup(title: "New", context: context)
+                _ = CDTaskGroup(title: "New group", context: context)
               
             }, label: {
                 Label("Add Group", systemImage: "plus.circle")

@@ -23,6 +23,12 @@ struct TaskRowView: View {
             
             TextField("New Task", text: $task.title)
                 .textFieldStyle(.plain)
+            
+            Button(action: {
+                //
+            }, label: {
+                Text("More")
+            })
         }
     }
 }
