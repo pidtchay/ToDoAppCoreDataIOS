@@ -15,7 +15,7 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView(selection: $selection)
         } detail: {
-            TaskListView()
+            TaskListView(title: "All")
         }
     }
 }

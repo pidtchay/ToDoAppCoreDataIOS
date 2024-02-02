@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct TaskListView: View {
+    let title: String
+    
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(fetchRequest: CDTask.fetch(), animation: .bouncy) var tasks
+    
+    @State private var selectedTask: CDTask? = nil
+    
+    init(title: String) {
+        self.title = title
+        
+        let request = CDTask.fetch()
+        
+        self._tasks = FetchRequest(fetchRequest: request, animation: .bouncy)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(tasks) { task in
+            TaskRowView(task: task)
+        }
     }
 }
 
 #Preview {
-    TaskListView()
+    TaskListView(title: "All")
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
