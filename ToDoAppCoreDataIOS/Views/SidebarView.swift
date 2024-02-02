@@ -34,7 +34,7 @@ struct SidebarView: View {
         .safeAreaInset(edge: .bottom) {
             Button(action: {
                 _ = CDTaskGroup(title: "New group", context: context)
-              
+                PersistenceController.shared.save()
             }, label: {
                 Label("Add Group", systemImage: "plus.circle")
             })
