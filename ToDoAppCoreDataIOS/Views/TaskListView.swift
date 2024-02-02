@@ -14,6 +14,7 @@ struct TaskListView: View {
     @FetchRequest(fetchRequest: CDTask.fetch(), animation: .bouncy) var tasks
     
     @State private var selectedTask: CDTask? = nil
+    @State private var inspectorIsShown: Bool = false
     
     let group: CDTaskGroup?
     
@@ -49,7 +50,9 @@ struct TaskListView: View {
     
     var body: some View {
         List(tasks) { task in
-            TaskRowView(task: task)
+            TaskRowView(task: task,
+                        selectedTask: $selectedTask,
+                        inspectorIsShown: $inspectorIsShown)
         }
         .navigationTitle(title)
         .toolbar {
@@ -61,6 +64,14 @@ struct TaskListView: View {
                 Label("Add task", systemImage: "plus")
             }
         }
+        // TODO аналог inspector для iOS < 17?
+        .inspector(isPresented: $inspectorIsShown, content: {
+            if let selectedTask {
+                TaskDetailView(task: selectedTask)
+            } else {
+                ContentUnavailableView("Please select a task", systemImage: "circle.inset.filled")
+            }
+        })
     }
 }
 

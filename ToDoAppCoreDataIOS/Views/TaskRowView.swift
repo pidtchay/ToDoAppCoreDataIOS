@@ -9,9 +9,19 @@ import SwiftUI
 
 struct TaskRowView: View {
     @ObservedObject var task: CDTask
+    @Binding var selectedTask: CDTask?
+    @Binding var inspectorIsShown: Bool
     
-    init(task: CDTask) {
+    let showMoreButton: Bool
+    
+    init(task: CDTask,
+         selectedTask: Binding<CDTask?>,
+         inspectorIsShown: Binding<Bool>,
+         showMoreButton: Bool = true) {
         self.task = task
+        self._selectedTask = selectedTask
+        self._inspectorIsShown = inspectorIsShown
+        self.showMoreButton = showMoreButton
     }
     
     var body: some View {
@@ -25,7 +35,8 @@ struct TaskRowView: View {
                 .textFieldStyle(.plain)
             
             Button(action: {
-                //
+                inspectorIsShown = true
+                selectedTask = task
             }, label: {
                 Text("More")
             })
@@ -34,5 +45,8 @@ struct TaskRowView: View {
 }
 
 #Preview {
-    TaskRowView(task: CDTask.example).padding()
+    TaskRowView(task: CDTask.example,
+                selectedTask: .constant(nil),
+                inspectorIsShown: .constant(false))
+    .padding()
 }

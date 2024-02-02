@@ -22,6 +22,7 @@ struct TaskDetailView: View {
             
             DatePicker("Due Date", selection: $task.dueDate)
         }
+        .listStyle(.sidebar)
     }
 }
 
