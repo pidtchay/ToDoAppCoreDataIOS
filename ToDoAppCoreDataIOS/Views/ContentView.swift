@@ -9,9 +9,14 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @State private var selection: TaskSection? = TaskSection.initialValue
 
     var body: some View {
-        Text("Helo")
+        NavigationSplitView {
+            SidebarView(selection: $selection)
+        } detail: {
+            TaskListView()
+        }
     }
 }
 

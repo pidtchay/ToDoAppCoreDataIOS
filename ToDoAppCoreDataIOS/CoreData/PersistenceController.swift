@@ -14,7 +14,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
-        self.container = NSPersistentContainer(name: "TaskManager")
+        self.container = NSPersistentContainer(name: "ToDoAppCoreDataIOS")
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
