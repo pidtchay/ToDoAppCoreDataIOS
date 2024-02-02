@@ -11,8 +11,11 @@
 		80E4534D2B6D2B350065A78E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E4534C2B6D2B350065A78E /* ContentView.swift */; };
 		80E4534F2B6D2B370065A78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E4534E2B6D2B370065A78E /* Assets.xcassets */; };
 		80E453522B6D2B370065A78E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E453512B6D2B370065A78E /* Preview Assets.xcassets */; };
-		80E453542B6D2B370065A78E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E453532B6D2B370065A78E /* Persistence.swift */; };
 		80E453572B6D2B370065A78E /* ToDoAppCoreDataIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E453552B6D2B370065A78E /* ToDoAppCoreDataIOS.xcdatamodeld */; };
+		80E453612B6D2C660065A78E /* CDTask+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E453602B6D2C660065A78E /* CDTask+helper.swift */; };
+		80E453632B6D2C760065A78E /* CDTaskGroup+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E453622B6D2C760065A78E /* CDTaskGroup+helper.swift */; };
+		80E453652B6D2C820065A78E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E453642B6D2C820065A78E /* PersistenceController.swift */; };
+		80E453672B6D2E180065A78E /* NSPredicate+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E453662B6D2E180065A78E /* NSPredicate+helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +24,11 @@
 		80E4534C2B6D2B350065A78E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80E4534E2B6D2B370065A78E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E453512B6D2B370065A78E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		80E453532B6D2B370065A78E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		80E453562B6D2B370065A78E /* ToDoAppCoreDataIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoAppCoreDataIOS.xcdatamodel; sourceTree = "<group>"; };
+		80E453602B6D2C660065A78E /* CDTask+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTask+helper.swift"; sourceTree = "<group>"; };
+		80E453622B6D2C760065A78E /* CDTaskGroup+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTaskGroup+helper.swift"; sourceTree = "<group>"; };
+		80E453642B6D2C820065A78E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		80E453662B6D2E180065A78E /* NSPredicate+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +61,10 @@
 		80E453492B6D2B350065A78E /* ToDoAppCoreDataIOS */ = {
 			isa = PBXGroup;
 			children = (
+				80E4535F2B6D2BC20065A78E /* Views */,
+				80E4535D2B6D2BAB0065A78E /* CoreData */,
 				80E4534A2B6D2B350065A78E /* ToDoAppCoreDataIOSApp.swift */,
-				80E4534C2B6D2B350065A78E /* ContentView.swift */,
 				80E4534E2B6D2B370065A78E /* Assets.xcassets */,
-				80E453532B6D2B370065A78E /* Persistence.swift */,
 				80E453552B6D2B370065A78E /* ToDoAppCoreDataIOS.xcdatamodeld */,
 				80E453502B6D2B370065A78E /* Preview Content */,
 			);
@@ -71,6 +77,25 @@
 				80E453512B6D2B370065A78E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		80E4535D2B6D2BAB0065A78E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				80E453602B6D2C660065A78E /* CDTask+helper.swift */,
+				80E453622B6D2C760065A78E /* CDTaskGroup+helper.swift */,
+				80E453642B6D2C820065A78E /* PersistenceController.swift */,
+				80E453662B6D2E180065A78E /* NSPredicate+helper.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		80E4535F2B6D2BC20065A78E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80E4534C2B6D2B350065A78E /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E453612B6D2C660065A78E /* CDTask+helper.swift in Sources */,
+				80E453652B6D2C820065A78E /* PersistenceController.swift in Sources */,
+				80E453632B6D2C760065A78E /* CDTaskGroup+helper.swift in Sources */,
 				80E453572B6D2B370065A78E /* ToDoAppCoreDataIOS.xcdatamodeld in Sources */,
-				80E453542B6D2B370065A78E /* Persistence.swift in Sources */,
 				80E4534D2B6D2B350065A78E /* ContentView.swift in Sources */,
+				80E453672B6D2E180065A78E /* NSPredicate+helper.swift in Sources */,
 				80E4534B2B6D2B350065A78E /* ToDoAppCoreDataIOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
