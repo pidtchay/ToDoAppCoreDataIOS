@@ -21,6 +21,23 @@ struct TaskDetailView: View {
                    isOn: $task.isCompleted)
             
             DatePicker("Due Date", selection: $task.dueDate)
+            
+            Section("Sub Tasks") {
+                ForEach(task.subTasks.sorted()) { subtask in
+                   TaskRowView(task: subtask,
+                           selectedTask: .constant(nil),
+                           inspectorIsShown: .constant(false),
+                           showMoreButton: false)
+                }
+                
+                Button(action: {
+                    let subTask = CDTask(title: "", dueDate: Date(), context: context)
+                    subTask.parentTask = task
+                    
+                }, label: {
+                    Label("New Sub Task", systemImage: "plus.circle")
+                })
+            }
         }
         .listStyle(.sidebar)
     }

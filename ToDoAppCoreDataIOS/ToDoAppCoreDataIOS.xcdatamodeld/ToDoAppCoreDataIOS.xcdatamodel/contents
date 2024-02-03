@@ -7,6 +7,8 @@
         <attribute name="title_" optional="YES" attributeType="String"/>
         <attribute name="uuid_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTaskGroup" inverseName="tasks_" inverseEntity="CDTaskGroup"/>
+        <relationship name="parentTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTask" inverseName="subTasks_" inverseEntity="CDTask"/>
+        <relationship name="subTasks_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTask" inverseName="parentTask" inverseEntity="CDTask"/>
     </entity>
     <entity name="CDTaskGroup" representedClassName="CDTaskGroup" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

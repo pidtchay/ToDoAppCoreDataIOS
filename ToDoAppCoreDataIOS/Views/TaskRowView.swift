@@ -34,12 +34,14 @@ struct TaskRowView: View {
             TextField("New Task", text: $task.title)
                 .textFieldStyle(.plain)
             
-            Button(action: {
-                inspectorIsShown = true
-                selectedTask = task
-            }, label: {
-                Text("More")
-            })
+            if showMoreButton {
+                Button(action: {
+                    inspectorIsShown = true
+                    selectedTask = task
+                }, label: {
+                    Text("More")
+                })
+            }
         }
     }
 }
